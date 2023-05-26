@@ -1,0 +1,72 @@
+/**************************/
+/* BELOW 376px (Phones) */
+/**************************/
+
+@media (max-width: 376px) {
+  .component {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 0;
+    margin-bottom: 50px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .section-left {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .left--result {
+    font-size: 34px;
+    padding-bottom: 50px;
+  }
+
+  .left--circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .left--number {
+    font-size: 100px;
+  }
+
+  .left--hundred {
+    font-size: 26px;
+    padding-top: 15px;
+  }
+
+  .left--great {
+    padding-top: 50px;
+    font-size: 48px;
+  }
+
+  .left--note {
+    font-size: 30px;
+    padding: 0;
+    margin: 20px 80px;
+    padding-bottom: 50px;
+  }
+
+  .section-right {
+    font-size: 30px;
+    padding: 0 50px;
+  }
+
+  .right--summary {
+    font-size: 32px;
+    font-weight: 800;
+  }
+
+  .right--btn {
+    font-size: 32px;
+    padding: 30px;
+    border-radius: 60px;
+  }
+
+  li {
+    padding: 30px;
+    margin: 30px 0;
+  }
+}
