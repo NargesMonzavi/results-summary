@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <style>
+      /*****************************************/
+      /* GENERAL */
+      /*****************************************/
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Hanken Grotesk", sans-serif;
+        line-height: 1;
+        font-size: 18px;
+      }
+
+      .component {
+        margin: 170px auto;
+        margin-bottom: 10px;
+        width: 700px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: 0 32px 64px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+      }
+
+      /*****************************************/
+      /* LEFT SECTION */
+      /*****************************************/
+
+      .section-left {
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        color: hsl(0, 0%, 100%);
+        background-image: linear-gradient(
+          hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%)
+        );
+        border-radius: 30px;
+      }
+
+      .left--result {
+        color: hsl(241, 100%, 89%);
+        font-size: 20px;
+        font-weight: 500;
+        padding-top: 48px;
+        padding-bottom: 32px;
+      }
+
+      .left--circle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-image: linear-gradient(
+          hsla(256, 72%, 46%, 1),
+          hsla(241, 72%, 46%, 0)
+        );
+      }
+
+      .left--number {
+        font-size: 62px;
+        font-weight: 800;
+      }
+
+      .left--hundred {
+        color: hsl(241, 100%, 89%);
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 12px;
+      }
+
+      .left--great {
+        font-size: 36px;
+        font-weight: 700;
+        padding-top: 32px;
+      }
+
+      .left--note {
+        color: hsl(241, 100%, 89%);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.25;
+        padding-top: 24px;
+        text-align: center;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+
+      /*****************************************/
+      /* RIGHT SECTION */
+      /*****************************************/
+
+      .section-right {
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        font-weight: 700;
+        color: hsl(241, 100%, 89%);
+        padding: 50px 25px;
+        padding-top: 0;
+      }
+
+      .right--summary {
+        margin-top: 48px;
+
+        font-size: 20px;
+        font-weight: 700;
+        color: hsl(224, 30%, 27%);
+      }
+
+      .right--info {
+        margin-top: 10px;
+      }
+
+      .right--item1 {
+        background-color: hsla(0, 100%, 67%, 0.05);
+      }
+
+      .right--item2 {
+        background-color: hsl(39, 100%, 56%, 0.05);
+      }
+
+      .right--item3 {
+        background-color: hsl(166, 100%, 37%, 0.05);
+      }
+
+      .right--item4 {
+        background-color: hsl(234, 85%, 45%, 0.05);
+      }
+
+      .right--icon {
+        margin-right: 5px;
+      }
+
+      .right--category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .right--info-result {
+        color: hsl(224, 30%, 27%);
+      }
+
+      .right--btn {
+        color: hsl(221, 100%, 96%);
+        font-size: 16px;
+        background-color: hsl(224, 30%, 27%);
+        padding: 15px;
+        border-radius: 25px;
+        margin-top: 25px;
+        border: none;
+      }
+
+      .right--btn:hover,
+      .right--btn:active {
+        cursor: pointer;
+        background-image: linear-gradient(
+          hsl(252, 100%, 67%),
+          hsl(241, 81%, 54%)
+        );
+        border: none;
+      }
+
+      .reaction-text {
+        color: hsl(0, 100%, 67%);
+      }
+
+      .memory-text {
+        color: hsl(39, 100%, 56%);
+      }
+
+      .verbal-text {
+        color: hsl(166, 100%, 37%);
+      }
+
+      .visual-text {
+        color: hsl(234, 85%, 45%);
+      }
+
+      li {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 13px;
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      /**************************/
+      /* QUERIES BELOW 376px (Phones) */
+      /**************************/
+
+      @media (max-width: 376px) {
+        .component {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          margin: 0;
+          margin-bottom: 50px;
+          border-radius: 0;
+          box-shadow: none;
+        }
+
+        .section-left {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+
+        .left--result {
+          font-size: 34px;
+          padding-bottom: 50px;
+        }
+
+        .left--circle {
+          width: 250px;
+          height: 250px;
+        }
+
+        .left--number {
+          font-size: 100px;
+        }
+
+        .left--hundred {
+          font-size: 26px;
+          padding-top: 15px;
+        }
+
+        .left--great {
+          padding-top: 50px;
+          font-size: 48px;
+        }
+
+        .left--note {
+          font-size: 30px;
+          padding: 0;
+          margin: 20px 80px;
+          padding-bottom: 50px;
+        }
+
+        .section-right {
+          font-size: 30px;
+          padding: 0 50px;
+        }
+
+        .right--summary {
+          font-size: 32px;
+          font-weight: 800;
+        }
+
+        .right--btn {
+          font-size: 32px;
+          padding: 30px;
+          border-radius: 60px;
+        }
+
+        li {
+          padding: 30px;
+          margin: 30px 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="component">
+      <section class="section-left">
+        <p class="left--result">Your Result</p>
+        <div class="left--circle">
+          <p class="left--number">76</p>
+          <p class="left--hundred">of 100</p>
+        </div>
+        <p class="left--great">Great</p>
+        <p class="left--note">
+          You scored higher than 65% of the people who have taken these tests.
+        </p>
+      </section>
+      <section class="section-right">
+        <p class="right--summary">Summary</p>
+        <ul class="right--info">
+          <li class="right--item1">
+            <div class="right--category">
+              <img
+                class="right--icon"
+                src="./assets/images/icon-reaction.svg"
+                alt="Reaction icon"
+              />
+              <span class="right--info-description reaction-text"
+                >Reaction</span
+              >
+            </div>
+            <div class="right--score">
+              <span class="right--info-result">80</span> / 100
+            </div>
+          </li>
+          <li class="right--item2">
+            <div class="right--category">
+              <img
+                class="right--icon"
+                src="./assets/images/icon-memory.svg"
+                alt="Memory icon"
+              />
+              <span class="right--info-description memory-text">Memory</span>
+            </div>
+            <div class="right--score">
+              <span class="right--info-result">92</span> / 100
+            </div>
+          </li>
+          <li class="right--item3">
+            <div class="right--category">
+              <img
+                class="right--icon"
+                src="./assets/images/icon-verbal.svg"
+                alt="Verbal icon"
+              />
+              <span class="right--info-description verbal-text">Verbal</span>
+            </div>
+            <div class="right--score">
+              <span class="right--info-result">61</span> / 100
+            </div>
+          </li>
+          <li class="right--item4">
+            <div class="right--category">
+              <img
+                class="right--icon"
+                src="./assets/images/icon-visual.svg"
+                alt="Visual icon"
+              />
+              <span class="right--info-description visual-text">Visual</span>
+            </div>
+            <div class="right--score">
+              <span class="right--info-result">72</span> / 100
+            </div>
+          </li>
+        </ul>
+        <button class="right--btn">Continue</button>
+      </section>
+    </section>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/NargesMonzavi" target="_blank"
+        >Narges Monzavi</a
+      >.
+    </div>
+  </body>
+</html>
